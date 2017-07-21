@@ -10,30 +10,39 @@
 </head>
 
 <body>
-    <div class="container">
+  <link href="https://fonts.googleapis.com/css?family=Delius" rel="stylesheet">
+<header>Free Code Camp: Random Quote Machine</header>
 
-      <div class="row vertical-center">
-        <div class="col">
-          <p id="quote"></p>
-        </div>
+<div class='container'>
+
+<div class='row'>
+  <div class='col-md-3'></div>
+
+  <!-- main app -->
+  <div class='col-md-6'>
+    <div class='animated' id='main'>
+      <div  id='quote'>
+        <div id='quote-body'></div>
+        <div id='quote-author'></div>
       </div>
-
-    <!--    button and tweets -->
-      <div class="row">
-        <div class="col-sm-8">
-         <button class="btn btn-primary" onclick="getit()">
-            New Quote
-          </button>
-
-          <button class="btn btn-primary" id = 'tweet'></button>
-
-        </div>
-        <div class="col-xs-7">
-          <p id='author'></p>
-        </div>
-
+      <div id="btns">
+        <a id="tweet" class='buttons' href=''>Tweet</a>
+      <a class='buttons'onClick="NewQuote()">New Quote</a>
       </div>
     </div>
+  </div>
+
+  <!--ends -->
+
+</div>
+
+<footer>Made by <a href='https://github.com/roh777'>Rohit Yadav</a></footer>
+
+</div>
+
+
+
+
 
 </body>
 </html>

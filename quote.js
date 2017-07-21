@@ -1,43 +1,23 @@
-$(document).ready(getit);
+var apiURL = 'https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=parseQuote';
 
-function parseQuote(json){
-  $("#quote").text("\" "+json.quoteText+"\"");
-  if(json.quoteAuthor=="")
-    $("#author").text("- Anonymous");
-  else
-   $("#author").text("- "+json.quoteAuthor);
+function parseQuote(data) {
 
-  changefont(json.quoteText);
-  settweetbutton(json.quoteText);
+  $('#quote-body').text(data.quoteText);
+  $('#quote-author').text('~'.concat(data.quoteAuthor));
+  //twitter stuff
+  var url = 'https://twitter.com/intent/tweet?text=';
+
+  $('#tweet').attr('href', url.concat(data.quoteText));
 
 }
 
-function changefont(quote){
-  $("#quote").hide();
-  $("#author").hide();
+function NewQuote() {
+      $.ajax({
+      url : apiURL,
+      dataType : 'jsonp'
+    });
 
-   var fonts = ["Aref Ruqaa", "Cormorant","Montserrat"];
-  var qlen = quote.length;
-  var curfont = fonts[qlen%fonts.length];
-
-
-  $('#quote').css("font-family",curfont);
-
-  $('#author').css("font-family",curfont);
-  $('#tweet').css("font-family",curfont);
-  $('button').css("font-family",curfont);
-  $('#quote').fadeIn(1500);
-  $('#author').fadeIn(1500);
-  $('.btn').fadeIn(2500);
+    parseQuote(data);
 }
 
-function settweetbutton(text) {
-  $('#tweet').html("<a target=\"_blank\" href=\"https://twitter.com/home?status="+text+"\" title=\"Write\">Tweet</a>")
-}
-
-function getit(){
-  $.ajax({
-  url: "https://api.forismatic.com/api/1.0/?method=getQuote&format=jsonp&lang=en&jsonp=parseQuote",
-  dataType: "jsonp"
-});
-}
+NewQuote();

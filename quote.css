@@ -1,23 +1,72 @@
-#quote{
-  font-size:4em;
-  text-align:center;
+*{
+  font-family: 'Delius', serif;
+  box-sizing : border-box;
 }
 
-#author{
-  font-size: 1.5em;
-  position:relative;
-  left: 80%;
+$shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+body{
+    background: linear-gradient(to right, #e8cbc0, #636fa4);
+}
+
+header{
+  border-bottom: 5px solid #efefef;
+  background-color: black;
+  color:#efefef;
+  padding : 10px;
+  width: 100%;
+  position : fixed;
+  z-index: 1;
+  font-size: 16px;
+  box-shadow: $shadow;
+
+}
+
+#main{
+  margin-top: 20%;
+  border : 1px #efefef;
+  border-radius : 5px;
+  box-shadow: $shadow;
+  padding: 20px;
+  font-size: 20px;
+  background-color: #E8CBC0;
+  transistion: all ease 1s;
 }
 
 
-button{
-  border:1px solid;
-  border-radius:5px;
-  font-size:20px;
-  background:white;
-}
 
 a{
-  text-decoration:none;
-  color:white;
+  text-decoration : none;
+  color : inherit;
+}
+
+.buttons {
+  height: 10px;
+  border-radius: 12px;
+  padding: 2px 10px 2px 10px;
+  margin: 10px;
+  font-size: 14px;
+  background-color: #bfc4d9;
+  box-shadow: 1px 4px 4px 1px  #8f97bd;
+  position: relative;
+  transisiton: all ease 0.3s;
+
+}
+
+.buttons:active{
+   top : 3px;
+    box-shadow: 1px 4px 4px 1px #636FA4;
+}
+
+.buttons:hover{
+  background-color: #9fa8c6;
+}
+
+footer {
+  bottom : 0;
+  text-align : center;
+  margin-top: 20%;
+  a{
+    color: rgba(132,43,211,1);
+  }
 }
